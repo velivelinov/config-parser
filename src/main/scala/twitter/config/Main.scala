@@ -21,8 +21,6 @@ object Main extends App with LazyLogging {
         logger.error("Error loading config.")
         throw new Exception("Error loading config.")
     }
-
-    println(config.get("ftp").get("name"))
   }
 
 }
