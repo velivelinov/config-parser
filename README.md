@@ -51,7 +51,7 @@ All the parser combinators that are used are Regex based, an option of implement
 
 ```
   implicit class Parser(str: String) {
-    def parsePath(r: Regex): Try[String] = Try {
+    def parse(r: Regex): Try[String] = Try {
       val r(extracted) = str
       extracted
     }
@@ -59,7 +59,7 @@ All the parser combinators that are used are Regex based, an option of implement
   
   // a path cannot contain new lines or any of the following characters: space, comma, <, >, =, ; 
   val pathRegex = "(/[^\n ,<>=;]*/?)".r
-  "/var/tmp".parsePath(pathRegex)
+  "/var/tmp".parse(pathRegex)
 ```
 
 This would have to be extended with logic to do two more things:
